@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMAZE · Premium Cosmetics</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ====== FIXED NAVBAR - AT THE VERY TOP ====== -->
+    <nav class="navbar-fixed">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-spa"></i>
+                <span>AMAZE</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+                <a href="#" id="profileLink"><i class="fas fa-user"></i> Profile</a>
+                <a href="#" id="loginLink"><i class="fas fa-sign-in-alt"></i> Log in</a>
+                <a href="#" id="registerNavLink" class="btn-register"><i class="fas fa-user-plus"></i> Register</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-cart-icon" id="cartToggleBtn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ====== VIDEO HERO SECTION WITH AMAZE OVERLAY ====== -->
+    <section class="video-hero">
+        <!-- FIXED VIDEO - NO START BUTTON, NO CONTROLS -->
+        <video autoplay muted loop playsinline disablePictureInPicture controlslist="nodownload nofullscreen noremoteplayback" id="bgVideo">
+            <source src="background.mp4" type="video/mp4" />
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        </video>
+        
+        <div class="video-overlay"></div>
+        
+        <!-- AMAZE TEXT - FLOATING HIGHER ON VIDEO -->
+        <div class="amaze-on-video">AMAZE</div>
+        
+        <div class="video-content">
+            <div class="container">
+                <div class="hero-text-on-video">
+                    <span class="badge"><i class="fas fa-leaf"></i>  Clean & Simple</span>
+                    <h1>Discover Your <span>Radiance</span></h1>
+                    <p>Pure water. Pure skin. Pure AMAZE.</p>
+
+                    <div class="hero-buttons">
+                        <button class="btn-primary" id="scrollToProduct">
+                            <i class="fas fa-leaf"></i> Shop Now
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-play-circle"></i> Watch Story
+                        </button>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div><span class="stat-number">10K+</span> <span class="stat-label">Happy Customers</span></div>
+                        <div><span class="stat-number">4.9★</span> <span class="stat-label">Average Rating</span></div>
+                        <div><span class="stat-number">100%</span> <span class="stat-label">Clean & Simple</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ====== REST OF THE CONTENT ====== -->
+    <div class="main-content">
+
+        <!-- ====== AMAZE PRODUCT INFO SECTION ====== -->
+        <section class="amaze-product-section">
+            <div class="container">
+                <div class="amaze-product-card glass">
+                    <div class="amaze-product-header">
+                        <span class="amaze-logo-text">AMAZE</span>
+                        <span class="amaze-tagline">Remove, Reuse, AMAZE</span>
+                    </div>
+
+                    <!-- ====== SHORT LINE ====== -->
+                    <div class="amaze-short-line">
+                        <span>"Gentle cleansing. Powerful results."</span>
+                    </div>
+
+                    <div class="amaze-tagline-text">
+                        <i class="fas fa-spa"></i> Gentle cleanliness... for every day <i class="fas fa-spa"></i>
+                    </div>
+
+                    <div class="amaze-features-grid">
+                        <div class="amaze-feature">
+                            <div class="amaze-feature-icon"><i class="fas fa-broom"></i></div>
+                            <h4>Deep Cleansing</h4>
+                            <p>Removes makeup and impurities with just one wipe</p>
+                        </div>
+                        <div class="amaze-feature">
+                            <div class="amaze-feature-icon"><i class="fas fa-leaf"></i></div>
+                            <h4>Gentle on Your Skin</h4>
+                            <p>Suitable for sensitive skin and doesn't cause irritation</p>
+                        </div>
+                        <div class="amaze-feature">
+                            <div class="amaze-feature-icon"><i class="fas fa-water"></i></div>
+                            <h4>Use with Water Only</h4>
+                            <p>No chemicals - eco-friendly</p>
+                        </div>
+                    </div>
+
+                    <div class="amaze-benefits-grid">
+                        <div class="amaze-benefit">
+                            <i class="fas fa-recycle"></i>
+                            <span>Washable</span>
+                            <small>Reusable & eco-friendly</small>
+                        </div>
+                        <div class="amaze-benefit">
+                            <i class="fas fa-award"></i>
+                            <span>Durable Quality</span>
+                            <small>Long-lasting use</small>
+                        </div>
+                        <div class="amaze-benefit">
+                            <i class="fas fa-cloud"></i>
+                            <span>Soft Texture</span>
+                            <small>Complete skin comfort</small>
+                        </div>
+                        <div class="amaze-benefit">
+                            <i class="fas fa-bag"></i>
+                            <span>Portable</span>
+                            <small>Perfect for travel & bags</small>
+                        </div>
+                    </div>
+
+                    <div class="amaze-result">
+                        <i class="fas fa-star"></i>
+                        Gentle Experience · Amazing Results
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <div class="amaze-badge-container">
+                        <span class="amaze-badge">✓ 100% Safe for Skin</span>
+                    </div>
+
+                    <div class="amaze-footer">
+                        <span><i class="fas fa-sparkles"></i> Your Ideal Choice <i class="fas fa-sparkles"></i></span>
+                        <small>For a healthy daily routine</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PRODUCT SECTION ====== -->
+        <section class="product-section" id="productSection">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Our Hero</span>
+                    <h2>The <span>Radiant</span> Serum</h2>
+                    <p>One product, endless glow.</p>
+                </div>
+
+                <div class="product-card glass">
+                    <div class="product-image">
+                        <span class="product-badge">Bestseller</span>
+                        <img src="AMAZE.jpeg" alt="Radiant Serum" />
+                    </div>
+
+                    <div class="product-details">
+                        <span class="product-category">Skincare</span>
+                        <h3><span>Radiant</span> Glow Serum</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                        <div class="product-price">$48.00 <small>$64.00</small></div>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Vitamin C + Hyaluronic Acid</li>
+                            <li><i class="fas fa-check-circle"></i> Brightening & Plumping</li>
+                            <li><i class="fas fa-check-circle"></i> 100% Sustainable</li>
+                        </ul>
+
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button id="qtyDecrease">−</button>
+                                <span id="qtyDisplay">1</span>
+                                <button id="qtyIncrease">+</button>
+                            </div>
+                            <button class="btn-cart" id="addToCartBtn">
+                                <i class="fas fa-shopping-bag"></i> Add to Cart
+                            </button>
+                        </div>
+
+                        <div class="product-extras">
+                            <span><i class="fas fa-truck"></i> Free Shipping</span>
+                            <span><i class="fas fa-undo-alt"></i> 30-Day Returns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CART PREVIEW ====== -->
+        <div class="container">
+            <div class="cart-preview glass" id="cartPreview">
+                <div class="cart-header">
+                    <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+                    <span id="cartItemCount">0 items</span>
+                </div>
+                <div id="cartItemsContainer">
+                    <div class="cart-empty">
+                        <i class="fas fa-box-open"></i>
+                        <p>Your cart is empty</p>
+                        <span>Start your glow journey.</span>
+                    </div>
+                </div>
+                <div class="cart-total hidden" id="cartTotalWrapper">
+                    <span>Total: <span id="cartTotalPrice">$0.00</span></span>
+                    <button class="btn-primary" id="checkoutDummy"><i class="fas fa-lock"></i> Checkout</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ====== MODALS ====== -->
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal glass">
+            <button class="modal-close" id="closeLoginModal">&times;</button>
+            <div class="modal-icon"><i class="fas fa-sign-in-alt"></i></div>
+            <h2>Welcome Back</h2>
+            <p class="sub">Sign in to continue your glow.</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" placeholder="you@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" placeholder="••••••••" required />
+                </div>
+                <button type="submit" class="btn-modal">Log In</button>
+            </form>
+            <div class="modal-footer">New here? <button id="switchToRegister">Create Account</button></div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal glass">
+            <button class="modal-close" id="closeRegisterModal">&times;</button>
+            <div class="modal-icon"><i class="fas fa-user-plus"></i></div>
+            <h2>Join AMAZE</h2>
+            <p class="sub">Start your radiant journey.</p>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" placeholder="Jane Doe" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" placeholder="jane@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" placeholder="Min 6 characters" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-check-circle"></i> Confirm Password</label>
+                    <input type="password" placeholder="Confirm password" required />
+                </div>
+                <button type="submit" class="btn-modal">Create Account</button>
+            </form>
+            <div class="modal-footer">Already a member? <button id="switchToLogin">Log In</button></div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal glass">
+            <button class="modal-close" id="closeProfileModal">&times;</button>
+            <div class="profile-avatar"><i class="fas fa-user-circle"></i></div>
+            <h2>My Profile</h2>
+            <div class="profile-info">
+                <div class="profile-field"><span><i class="fas fa-user"></i> Name</span> <span id="profileName">Guest</span></div>
+                <div class="profile-field"><span><i class="fas fa-envelope"></i> Email</span> <span id="profileEmail">guest@example.com</span></div>
+                <div class="profile-field"><span><i class="fas fa-calendar"></i> Member Since</span> <span>2026</span></div>
+                <div class="profile-field"><span><i class="fas fa-circle"></i> Status</span> <span id="profileStatus" style="color:#b45f4b;">Guest</span></div>
+            </div>
+            <button class="btn-modal logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
