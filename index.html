@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMAZE · Premium Cosmetics</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ====== FIXED NAVBAR - AT THE VERY TOP ====== -->
+    <nav class="navbar-fixed">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-spa"></i>
+                <span>AMAZE</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+                <a href="#" id="aboutLink"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#" id="profileLink"><i class="fas fa-user"></i> Profile</a>
+                <a href="#" id="loginLink"><i class="fas fa-sign-in-alt"></i> Log in</a>
+                <a href="#" id="registerNavLink" class="btn-register"><i class="fas fa-user-plus"></i> Register</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-cart-icon" id="cartToggleBtn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ====== VIDEO HERO SECTION ====== -->
+    <section class="video-hero">
+        <video autoplay muted loop playsinline disablePictureInPicture controlslist="nodownload nofullscreen noremoteplayback" id="bgVideo">
+            <source src="background.mp4" type="video/mp4" />
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        </video>
+        
+        <div class="video-overlay"></div>
+        
+        <div class="amaze-on-video">AMAZE</div>
+        
+        <div class="video-content">
+            <div class="container">
+                <div class="hero-text-on-video">
+                    <span class="badge"><i class="fas fa-leaf"></i>  Clean & Simple</span>
+                    <h1>Discover Your <span>Radiance</span></h1>
+                    <p>Pure water. Pure skin. Pure AMAZE.</p>
+
+                    <div class="hero-buttons">
+                        <button class="btn-primary" id="scrollToProduct">
+                            <i class="fas fa-leaf"></i> Shop Now
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-play-circle"></i> Watch Story
+                        </button>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div><span class="stat-number">10K+</span> <span class="stat-label">Happy Customers</span></div>
+                        <div><span class="stat-number">4.9★</span> <span class="stat-label">Average Rating</span></div>
+                        <div><span class="stat-number">100%</span> <span class="stat-label">Clean & Simple</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ====== REST OF THE CONTENT ====== -->
+    <div class="main-content">
+
+        <!-- ====== ABOUT SECTION ====== -->
+        <section class="about-section" id="aboutSection">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="about-text glass">
+                        <div class="section-header">
+                            <span class="section-tag"><i class="fas fa-info-circle"></i> About AMAZE</span>
+                            <h2>What Makes Us <span>Different</span></h2>
+                            <p>Discover the story behind our revolutionary product</p>
+                        </div>
+                        
+                        <div class="about-content">
+                            <p>
+                                <strong>AMAZE</strong> is more than just a makeup remover — it's a <strong>revolution in skincare</strong>. 
+                                Designed for women who value both beauty and sustainability, our product removes 
+                                makeup and impurities with just water, leaving your skin clean, soft, and radiant.
+                            </p>
+                            <p>
+                                Unlike traditional makeup removers that use harsh chemicals and single-use wipes, 
+                                AMAZE is <strong>100% chemical-free</strong> and <strong>fully reusable</strong>. 
+                                Simply add water, gently wipe away makeup, and rinse. It's that simple!
+                            </p>
+                            <p>
+                                Our mission is to make skincare <strong>gentle, effective, and kind to the planet</strong>. 
+                                Every AMAZE product is carefully crafted to be safe for sensitive skin, eco-friendly, 
+                                and long-lasting. Join thousands of happy customers who have made the switch to AMAZE!
+                            </p>
+                        </div>
+
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>100% Natural</span>
+                                <small>No chemicals, just pure cleansing</small>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-recycle"></i>
+                                <span>Eco-Friendly</span>
+                                <small>Reusable and sustainable</small>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Gentle on Skin</span>
+                                <small>Safe for sensitive skin</small>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-star"></i>
+                                <span>Effective Results</span>
+                                <small>Removes makeup instantly</small>
+                            </div>
+                        </div>
+
+                        <div class="about-cta">
+                            <button class="btn-primary" id="scrollToProduct">
+                                <i class="fas fa-shopping-bag"></i> Shop Now
+                            </button>
+                            <button class="btn-secondary about-btn-secondary">
+                                <i class="fas fa-play-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== AMAZE PRODUCT INFO SECTION ====== -->
+        <section class="amaze-product-section">
+            <div class="container">
+                <div class="amaze-product-card glass">
+                    <div class="amaze-product-header">
+                        <span class="amaze-logo-text">AMAZE</span>
+                        <span class="amaze-tagline">Remove, Reuse, AMAZE</span>
+                    </div>
+
+                    <div class="amaze-short-line">
+                        <span>"Gentle cleansing. Powerful results."</span>
+                    </div>
+
+                    <div class="amaze-tagline-text">
+                        <i class="fas fa-spa"></i> Gentle cleanliness... for every day <i class="fas fa-spa"></i>
+                    </div>
+
+                    <div class="amaze-features-grid">
+                        <div class="amaze-feature">
+                            <div class="amaze-feature-icon"><i class="fas fa-broom"></i></div>
+                            <h4>Deep Cleansing</h4>
+                            <p>Removes makeup and impurities with just one wipe</p>
+                        </div>
+                        <div class="amaze-feature">
+                            <div class="amaze-feature-icon"><i class="fas fa-leaf"></i></div>
+                            <h4>Gentle on Your Skin</h4>
+                            <p>Suitable for sensitive skin and doesn't cause irritation</p>
+                        </div>
+                        <div class="amaze-feature">
+                            <div class="amaze-feature-icon"><i class="fas fa-water"></i></div>
+                            <h4>Use with Water Only</h4>
+                            <p>No chemicals - eco-friendly</p>
+                        </div>
+                    </div>
+
+                    <div class="amaze-benefits-grid">
+                        <div class="amaze-benefit">
+                            <i class="fas fa-recycle"></i>
+                            <span>Washable</span>
+                            <small>Reusable & eco-friendly</small>
+                        </div>
+                        <div class="amaze-benefit">
+                            <i class="fas fa-award"></i>
+                            <span>Durable Quality</span>
+                            <small>Long-lasting use</small>
+                        </div>
+                        <div class="amaze-benefit">
+                            <i class="fas fa-cloud"></i>
+                            <span>Soft Texture</span>
+                            <small>Complete skin comfort</small>
+                        </div>
+                        <div class="amaze-benefit">
+                            <i class="fas fa-bag"></i>
+                            <span>Portable</span>
+                            <small>Perfect for travel & bags</small>
+                        </div>
+                    </div>
+
+                    <div class="amaze-result">
+                        <i class="fas fa-star"></i>
+                        Gentle Experience · Amazing Results
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <div class="amaze-badge-container">
+                        <span class="amaze-badge">✓ 100% Safe for Skin</span>
+                    </div>
+
+                    <div class="amaze-footer">
+                        <span><i class="fas fa-sparkles"></i> Your Ideal Choice <i class="fas fa-sparkles"></i></span>
+                        <small>For a healthy daily routine</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CUSTOMER REVIEWS SECTION ====== -->
+        <section class="reviews-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-heart"></i> What Our Customers Say</span>
+                    <h2>Real <span>Reviews</span></h2>
+                    <p>Loved by thousands of women around the world</p>
+                </div>
+
+                <div class="reviews-grid">
+
+                    <!-- Review 1 - Sarah from USA -->
+                    <div class="review-card glass">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">
+                            "AMAZE is truly amazing! I've struggled with sensitive skin for years, but this makeup remover is so gentle. It removes everything in one swipe and leaves my skin feeling soft and hydrated. No more redness or irritation! I've been recommending it to all my friends."
+                        </p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='30' fill='%23dbb8ab'/%3E%3Ccircle cx='35' cy='35' r='4' fill='%232d2a24'/%3E%3Ccircle cx='65' cy='35' r='4' fill='%232d2a24'/%3E%3Cpath d='M35 50 Q50 58 65 50' stroke='%232d2a24' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Sarah" />
+                            </div>
+                            <div>
+                                <h4>Sarah Johnson</h4>
+                                <span class="review-location"><i class="fas fa-map-pin"></i> New York, USA</span>
+                            </div>
+                            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 - Jessica from USA -->
+                    <div class="review-card glass">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">
+                            "I've tried so many makeup removers, but AMAZE is by far the best! It's so gentle and effective. I love that I can just use water with it - no harsh chemicals. My skin feels cleaner and more radiant than ever. Plus, it's eco-friendly and reusable!"
+                        </p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='30' fill='%23dbb8ab'/%3E%3Ccircle cx='35' cy='35' r='4' fill='%232d2a24'/%3E%3Ccircle cx='65' cy='35' r='4' fill='%232d2a24'/%3E%3Cpath d='M40 48 Q50 55 60 48' stroke='%232d2a24' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Jessica" />
+                            </div>
+                            <div>
+                                <h4>Jessica Williams</h4>
+                                <span class="review-location"><i class="fas fa-map-pin"></i> Los Angeles, USA</span>
+                            </div>
+                            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 - Noura from Saudi Arabia -->
+                    <div class="review-card glass">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">
+                            "AMAZE completely transformed my skincare routine! It removes makeup so gently and doesn't irritate my sensitive skin at all. I love that it's eco-friendly and reusable. I highly recommend it to anyone looking for a natural and effective product!"
+                        </p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='30' fill='%23dbb8ab'/%3E%3Ccircle cx='35' cy='35' r='4' fill='%232d2a24'/%3E%3Ccircle cx='65' cy='35' r='4' fill='%232d2a24'/%3E%3Cpath d='M38 52 Q50 60 62 52' stroke='%232d2a24' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Noura" />
+                            </div>
+                            <div>
+                                <h4>Noura Al-Fahd</h4>
+                                <span class="review-location"><i class="fas fa-map-pin"></i> Riyadh, Saudi Arabia</span>
+                            </div>
+                            <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PRODUCT SECTION ====== -->
+        <section class="product-section" id="productSection">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Our Hero</span>
+                    <h2>The <span>Radiant</span> Serum</h2>
+                    <p>One product, endless glow.</p>
+                </div>
+
+                <div class="product-card glass">
+                    <div class="product-image">
+                        <span class="product-badge">Bestseller</span>
+                        <img src="AMAZE.jpeg" alt="Radiant Serum" />
+                    </div>
+
+                    <div class="product-details">
+                        <span class="product-category">Skincare</span>
+                        <h3><span>Radiant</span> Glow Serum</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                        <div class="product-price">$48.00 <small>$64.00</small></div>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Vitamin C + Hyaluronic Acid</li>
+                            <li><i class="fas fa-check-circle"></i> Brightening & Plumping</li>
+                            <li><i class="fas fa-check-circle"></i> 100% Sustainable</li>
+                        </ul>
+
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button id="qtyDecrease">−</button>
+                                <span id="qtyDisplay">1</span>
+                                <button id="qtyIncrease">+</button>
+                            </div>
+                            <button class="btn-cart" id="addToCartBtn">
+                                <i class="fas fa-shopping-bag"></i> Add to Cart
+                            </button>
+                        </div>
+
+                        <div class="product-extras">
+                            <span><i class="fas fa-truck"></i> Free Shipping</span>
+                            <span><i class="fas fa-undo-alt"></i> 30-Day Returns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CART PREVIEW ====== -->
+        <div class="container">
+            <div class="cart-preview glass" id="cartPreview">
+                <div class="cart-header">
+                    <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+                    <span id="cartItemCount">0 items</span>
+                </div>
+                <div id="cartItemsContainer">
+                    <div class="cart-empty">
+                        <i class="fas fa-box-open"></i>
+                        <p>Your cart is empty</p>
+                        <span>Start your glow journey.</span>
+                    </div>
+                </div>
+                <div class="cart-total hidden" id="cartTotalWrapper">
+                    <span>Total: <span id="cartTotalPrice">$0.00</span></span>
+                    <button class="btn-primary" id="checkoutDummy"><i class="fas fa-lock"></i> Checkout</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ====== MODALS ====== -->
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal glass">
+            <button class="modal-close" id="closeLoginModal">&times;</button>
+            <div class="modal-icon"><i class="fas fa-sign-in-alt"></i></div>
+            <h2>Welcome Back</h2>
+            <p class="sub">Sign in to continue your glow.</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" placeholder="you@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" placeholder="••••••••" required />
+                </div>
+                <button type="submit" class="btn-modal">Log In</button>
+            </form>
+            <div class="modal-footer">New here? <button id="switchToRegister">Create Account</button></div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal glass">
+            <button class="modal-close" id="closeRegisterModal">&times;</button>
+            <div class="modal-icon"><i class="fas fa-user-plus"></i></div>
+            <h2>Join AMAZE</h2>
+            <p class="sub">Start your radiant journey.</p>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" placeholder="Jane Doe" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" placeholder="jane@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" placeholder="Min 6 characters" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-check-circle"></i> Confirm Password</label>
+                    <input type="password" placeholder="Confirm password" required />
+                </div>
+                <button type="submit" class="btn-modal">Create Account</button>
+            </form>
+            <div class="modal-footer">Already a member? <button id="switchToLogin">Log In</button></div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal glass">
+            <button class="modal-close" id="closeProfileModal">&times;</button>
+            <div class="profile-avatar"><i class="fas fa-user-circle"></i></div>
+            <h2>My Profile</h2>
+            <div class="profile-info">
+                <div class="profile-field"><span><i class="fas fa-user"></i> Name</span> <span id="profileName">Guest</span></div>
+                <div class="profile-field"><span><i class="fas fa-envelope"></i> Email</span> <span id="profileEmail">guest@example.com</span></div>
+                <div class="profile-field"><span><i class="fas fa-calendar"></i> Member Since</span> <span>2026</span></div>
+                <div class="profile-field"><span><i class="fas fa-circle"></i> Status</span> <span id="profileStatus" style="color:#b45f4b;">Guest</span></div>
+            </div>
+            <button class="btn-modal logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
