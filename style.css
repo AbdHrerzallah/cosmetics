@@ -138,7 +138,7 @@ body {
 }
 
 /* ============================================
-   VIDEO HERO - NO PLAY BUTTON
+   VIDEO HERO - COMPLETELY FIXED
    ============================================ */
 .video-hero {
     position: relative;
@@ -166,55 +166,52 @@ body {
 }
 
 /* ===== HIDE ALL VIDEO CONTROLS ===== */
-
-/* Hide default controls */
 .video-hero video::-webkit-media-controls {
     display: none !important;
 }
-
 .video-hero video::-webkit-media-controls-start-playback-button {
     display: none !important;
 }
-
 .video-hero video::-webkit-media-controls-panel {
     display: none !important;
 }
-
 .video-hero video::-webkit-media-controls-enclosure {
     display: none !important;
 }
-
-/* Hide the big play button overlay */
 .video-hero video::-webkit-media-controls-overlay-play-button {
     display: none !important;
 }
-
 .video-hero video::-webkit-media-controls-play-button {
     display: none !important;
 }
-
-/* Hide timeline and other controls */
 .video-hero video::-webkit-media-controls-timeline {
     display: none !important;
 }
-
 .video-hero video::-webkit-media-controls-current-time-display {
     display: none !important;
 }
-
 .video-hero video::-webkit-media-controls-time-remaining-display {
     display: none !important;
 }
-
 .video-hero video::-webkit-media-controls-volume-slider {
     display: none !important;
 }
-
 .video-hero video::-webkit-media-controls-mute-button {
     display: none !important;
 }
-
 .video-hero video::-webkit-media-controls-fullscreen-button {
+    display: none !important;
+}
+.video-hero video::-webkit-media-controls-timeline-container {
+    display: none !important;
+}
+.video-hero video::-webkit-media-controls-volume-control-container {
+    display: none !important;
+}
+.video-hero video::-webkit-media-controls-volume-control {
+    display: none !important;
+}
+.video-hero video::-webkit-media-controls-volume-control-hover {
     display: none !important;
 }
 
@@ -222,11 +219,9 @@ body {
 .video-hero video::-moz-media-controls {
     display: none !important;
 }
-
 .video-hero video::-moz-media-controls-start-playback-button {
     display: none !important;
 }
-
 .video-hero video::-moz-media-controls-panel {
     display: none !important;
 }
@@ -235,39 +230,20 @@ body {
 .video-hero video::-ms-media-controls {
     display: none !important;
 }
-
 .video-hero video::-ms-media-controls-start-playback-button {
     display: none !important;
 }
-
 .video-hero video::-ms-media-controls-panel {
     display: none !important;
 }
 
-/* ===== EXTRA FIX FOR MOBILE PLAY BUTTON ===== */
-.video-hero video:fullscreen {
-    object-fit: cover;
-}
-
-.video-hero video::-webkit-media-controls-timeline-container {
-    display: none !important;
-}
-
-.video-hero video::-webkit-media-controls-volume-control-container {
-    display: none !important;
-}
-
-.video-hero video::-webkit-media-controls-volume-control {
-    display: none !important;
-}
-
-.video-hero video::-webkit-media-controls-volume-control-hover {
-    display: none !important;
-}
-
-/* Hide poster image that might show play button */
+/* ===== FIX: Hide poster image ===== */
 .video-hero video {
     background: transparent;
+}
+
+.video-hero video:fullscreen {
+    object-fit: cover;
 }
 
 .video-overlay {

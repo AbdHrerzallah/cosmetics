@@ -43,9 +43,23 @@
         </div>
     </nav>
 
-    <!-- ====== VIDEO HERO SECTION - NO PLAY BUTTON ====== -->
+    <!-- ====== VIDEO HERO SECTION - COMPLETELY FIXED ====== -->
     <section class="video-hero">
-        <video autoplay muted loop playsinline disablePictureInPicture controlslist="nodownload nofullscreen noremoteplayback" id="bgVideo" webkit-playsinline x5-playsinline playsinline>
+        <!-- FIXED VIDEO - FORCES AUTOPLAY ON MOBILE -->
+        <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            disablePictureInPicture 
+            controlslist="nodownload nofullscreen noremoteplayback" 
+            id="bgVideo" 
+            webkit-playsinline 
+            x5-playsinline 
+            playsinline
+            preload="auto"
+            poster=""
+        >
             <source src="background.mp4" type="video/mp4" />
             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
         </video>
