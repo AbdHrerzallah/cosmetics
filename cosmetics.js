@@ -162,7 +162,6 @@ document.getElementById('homeLink')?.addEventListener('click', (e) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ====== ABOUT LINK ======
 document.getElementById('aboutLink').addEventListener('click', (e) => {
     e.preventDefault();
     document.getElementById('aboutSection').scrollIntoView({ behavior: 'smooth' });
