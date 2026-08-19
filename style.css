@@ -138,7 +138,7 @@ body {
 }
 
 /* ============================================
-   VIDEO HERO - COMPLETELY FIXED
+   VIDEO HERO - IPHONE OPTIMIZED
    ============================================ */
 .video-hero {
     position: relative;
@@ -237,13 +237,18 @@ body {
     display: none !important;
 }
 
-/* ===== FIX: Hide poster image ===== */
+/* ===== FORCE VIDEO TO PLAY ON IPHONE ===== */
 .video-hero video {
-    background: transparent;
+    background: #000;
 }
 
 .video-hero video:fullscreen {
     object-fit: cover;
+}
+
+/* Fallback for iPhone - show overlay if video fails */
+.video-hero .video-fallback {
+    display: none;
 }
 
 .video-overlay {

@@ -43,22 +43,25 @@
         </div>
     </nav>
 
-    <!-- ====== VIDEO HERO SECTION - COMPLETELY FIXED ====== -->
-    <section class="video-hero">
-        <!-- FIXED VIDEO - FORCES AUTOPLAY ON MOBILE -->
+    <!-- ====== VIDEO HERO SECTION - IPHONE OPTIMIZED ====== -->
+    <section class="video-hero" id="videoHero">
+        <!-- 
+            IPHONE FIX:
+            - playsinline: Required for iOS autoplay
+            - muted: Required for autoplay on iOS
+            - preload="auto": Loads video immediately
+            - poster: A tiny base64 image to trigger autoplay
+        -->
         <video 
             autoplay 
             muted 
             loop 
             playsinline 
-            disablePictureInPicture 
-            controlslist="nodownload nofullscreen noremoteplayback" 
-            id="bgVideo" 
             webkit-playsinline 
-            x5-playsinline 
-            playsinline
+            x5-playsinline
             preload="auto"
-            poster=""
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E"
+            id="bgVideo"
         >
             <source src="background.mp4" type="video/mp4" />
             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
