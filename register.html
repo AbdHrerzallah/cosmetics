@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register · AMAZE</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fdf8f5 0%, #f0e3db 100%);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ===== DECORATIVE ELEMENTS ===== */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(180, 95, 75, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 140, 122, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* ===== REGISTER CARD ===== */
+        .register-wrapper {
+            width: 100%;
+            max-width: 440px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .register-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 40px 36px 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeUp 0.6s ease;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.96);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ===== LOGO ===== */
+        .register-logo {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .register-logo .icon {
+            font-size: 42px;
+            color: #b45f4b;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .register-logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #b45f4b, #d48c7a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #b45f4b;
+        }
+
+        .register-logo p {
+            font-size: 14px;
+            color: #8a7a6e;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== FORM ===== */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            font-size: 13px;
+            color: #3d352e;
+            margin-bottom: 5px;
+        }
+
+        .form-group label i {
+            color: #b45f4b;
+            margin-right: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px 18px;
+            border: 1px solid rgba(180, 95, 75, 0.12);
+            border-radius: 60px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #b45f4b;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(180, 95, 75, 0.06);
+        }
+
+        .form-group input::placeholder {
+            color: #c5b8ae;
+        }
+
+        .form-group .password-hint {
+            font-size: 11px;
+            color: #8a7a6e;
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* ===== PASSWORD STRENGTH ===== */
+        .password-strength {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .password-strength .bar {
+            flex: 1;
+            height: 3px;
+            background: #eee;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .password-strength .bar.active.weak {
+            background: #b45f4b;
+        }
+        .password-strength .bar.active.medium {
+            background: #f39c12;
+        }
+        .password-strength .bar.active.strong {
+            background: #2d7d46;
+        }
+
+        .password-strength-text {
+            font-size: 11px;
+            color: #8a7a6e;
+            margin-top: 4px;
+        }
+
+        /* ===== TERMS ===== */
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 16px 0 20px;
+            font-size: 13px;
+            color: #5f554b;
+        }
+
+        .terms input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
+            accent-color: #b45f4b;
+            margin-top: 1px;
+            cursor: pointer;
+        }
+
+        .terms a {
+            color: #b45f4b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== BUTTON ===== */
+        .btn-register {
+            width: 100%;
+            background: linear-gradient(135deg, #b45f4b, #9f4f3d);
+            border: none;
+            padding: 15px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(180, 95, 75, 0.25);
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(180, 95, 75, 0.35);
+        }
+
+        .btn-register:active {
+            transform: scale(0.98);
+        }
+
+        .btn-register i {
+            font-size: 18px;
+        }
+
+        /* ===== ERROR MESSAGE ===== */
+        .error-message {
+            background: rgba(180, 95, 75, 0.06);
+            border: 1px solid rgba(180, 95, 75, 0.12);
+            color: #b45f4b;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .error-message.show {
+            display: flex;
+        }
+
+        .error-message i {
+            font-size: 16px;
+        }
+
+        /* ===== SUCCESS MESSAGE ===== */
+        .success-message {
+            background: rgba(45, 125, 70, 0.06);
+            border: 1px solid rgba(45, 125, 70, 0.12);
+            color: #2d7d46;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .success-message.show {
+            display: flex;
+        }
+
+        .success-message i {
+            font-size: 16px;
+        }
+
+        /* ===== FOOTER ===== */
+        .register-footer {
+            text-align: center;
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(180, 95, 75, 0.06);
+        }
+
+        .register-footer a {
+            color: #b45f4b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .register-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .register-footer .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8a7a6e;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .register-footer .back-link:hover {
+            color: #b45f4b;
+        }
+
+        /* ===== LOADING SPINNER ===== */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        .spinner.active {
+            display: inline-block;
+        }
+
+        .btn-register.loading .btn-text {
+            display: none;
+        }
+
+        .btn-register.loading .spinner {
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .register-card {
+                padding: 28px 20px 24px;
+                border-radius: 28px;
+            }
+
+            .register-logo h1 {
+                font-size: 26px;
+            }
+
+            .form-group input {
+                padding: 12px 16px;
+                font-size: 13px;
+            }
+
+            .btn-register {
+                padding: 13px;
+                font-size: 15px;
+            }
+
+            .terms {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-wrapper">
+
+        <div class="register-card">
+
+            <!-- ===== LOGO ===== -->
+            <div class="register-logo">
+                <span class="icon"><i class="fas fa-spa"></i></span>
+                <h1>AMAZE</h1>
+                <p>Create Your Account</p>
+            </div>
+
+            <!-- ===== ERROR MESSAGE ===== -->
+            <div class="error-message" id="errorMessage">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="errorText">Please fix the errors below.</span>
+            </div>
+
+            <!-- ===== SUCCESS MESSAGE ===== -->
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <span id="successText">Account created! Redirecting to login...</span>
+            </div>
+
+            <!-- ===== REGISTER FORM ===== -->
+            <form id="registerForm" autocomplete="off">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input 
+                        type="text" 
+                        id="fullName" 
+                        placeholder="Enter your full name" 
+                        required 
+                        autofocus
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        placeholder="Enter your email address" 
+                        required 
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        placeholder="Create a password (min 6 characters)" 
+                        required 
+                        minlength="6"
+                    />
+                    <span class="password-hint">Minimum 6 characters</span>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="bar" id="strength1"></div>
+                        <div class="bar" id="strength2"></div>
+                        <div class="bar" id="strength3"></div>
+                        <div class="bar" id="strength4"></div>
+                    </div>
+                    <div class="password-strength-text" id="strengthText"></div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-check-circle"></i> Confirm Password</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        placeholder="Confirm your password" 
+                        required 
+                    />
+                </div>
+
+                <div class="terms">
+                    <input type="checkbox" id="termsCheck" required />
+                    <label for="termsCheck">
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-register" id="registerBtn">
+                    <span class="btn-text"><i class="fas fa-user-plus"></i> Create Account</span>
+                    <span class="spinner"></span>
+                </button>
+            </form>
+
+            <!-- ===== FOOTER ===== -->
+            <div class="register-footer">
+                Already have an account? <a href="login.html">Log In</a>
+                <br />
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Website
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // ============================================
+        // REGISTER PAGE SCRIPT
+        // ============================================
+
+        const registerForm = document.getElementById('registerForm');
+        const fullNameInput = document.getElementById('fullName');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const termsCheck = document.getElementById('termsCheck');
+        const registerBtn = document.getElementById('registerBtn');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorText = document.getElementById('errorText');
+        const successMessage = document.getElementById('successMessage');
+        const successText = document.getElementById('successText');
+
+        // Password strength elements
+        const strength1 = document.getElementById('strength1');
+        const strength2 = document.getElementById('strength2');
+        const strength3 = document.getElementById('strength3');
+        const strength4 = document.getElementById('strength4');
+        const strengthText = document.getElementById('strengthText');
+        const strengthBars = [strength1, strength2, strength3, strength4];
+
+        // ============================================
+        // PASSWORD STRENGTH CHECKER
+        // ============================================
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            const strength = checkPasswordStrength(password);
+            updateStrengthUI(strength);
+        });
+
+        function checkPasswordStrength(password) {
+            let score = 0;
+            if (password.length >= 6) score++;
+            if (password.length >= 10) score++;
+            if (/[A-Z]/.test(password) && /[a-z]/.test(password)) score++;
+            if (/\d/.test(password) && /[^A-Za-z0-9]/.test(password)) score++;
+            return Math.min(score, 4);
+        }
+
+        function updateStrengthUI(strength) {
+            const labels = ['', 'Weak', 'Fair', 'Good', 'Strong'];
+            const colors = ['', '#b45f4b', '#f39c12', '#2d7d46', '#2d7d46'];
+
+            strengthBars.forEach((bar, index) => {
+                bar.className = 'bar';
+                if (index < strength) {
+                    bar.classList.add('active');
+                    if (strength <= 2) {
+                        bar.classList.add('weak');
+                    } else if (strength === 3) {
+                        bar.classList.add('medium');
+                    } else {
+                        bar.classList.add('strong');
+                    }
+                }
+            });
+
+            if (strength > 0) {
+                strengthText.textContent = labels[strength];
+                strengthText.style.color = colors[strength];
+            } else {
+                strengthText.textContent = '';
+            }
+        }
+
+        // ============================================
+        // FORM SUBMISSION
+        // ============================================
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Hide previous messages
+            errorMessage.classList.remove('show');
+            successMessage.classList.remove('show');
+
+            // Get values
+            const fullName = fullNameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            // Validate name
+            if (fullName.length < 2) {
+                showError('Please enter your full name.');
+                fullNameInput.focus();
+                return;
+            }
+
+            // Validate email
+            if (!isValidEmail(email)) {
+                showError('Please enter a valid email address.');
+                emailInput.focus();
+                return;
+            }
+
+            // Validate password
+            if (password.length < 6) {
+                showError('Password must be at least 6 characters long.');
+                passwordInput.focus();
+                return;
+            }
+
+            // Validate confirm password
+            if (password !== confirmPassword) {
+                showError('Passwords do not match.');
+                confirmPasswordInput.focus();
+                return;
+            }
+
+            // Validate terms
+            if (!termsCheck.checked) {
+                showError('Please agree to the Terms of Service.');
+                termsCheck.focus();
+                return;
+            }
+
+            // ===== SUCCESS! =====
+            // Show success message
+            successText.textContent = '🎉 Account created successfully! Redirecting to login...';
+            successMessage.classList.add('show');
+
+            // Disable button and show loading
+            registerBtn.classList.add('loading');
+            registerBtn.disabled = true;
+
+            // Save user data to localStorage (so it "remembers" the user)
+            const users = JSON.parse(localStorage.getItem('amaze_users') || '[]');
+            users.push({
+                name: fullName,
+                email: email,
+                password: password,
+                date: new Date().toISOString()
+            });
+            localStorage.setItem('amaze_users', JSON.stringify(users));
+
+            // Redirect to login page after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'login.html?registered=true';
+            }, 2000);
+        });
+
+        // ============================================
+        // VALIDATE EMAIL
+        // ============================================
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // ============================================
+        // SHOW ERROR
+        // ============================================
+        function showError(message) {
+            errorText.textContent = message;
+            errorMessage.classList.add('show');
+            
+            // Shake animation
+            document.querySelector('.register-card').style.animation = 'shake 0.4s ease';
+            setTimeout(() => {
+                document.querySelector('.register-card').style.animation = '';
+            }, 400);
+        }
+
+        // ============================================
+        // CLEAR ERROR ON TYPING
+        // ============================================
+        document.querySelectorAll('#registerForm input').forEach(input => {
+            input.addEventListener('input', function() {
+                errorMessage.classList.remove('show');
+            });
+        });
+
+        // ============================================
+        // CHECK FOR REGISTERED PARAMETER
+        // ============================================
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('registered') === 'true') {
+                successText.textContent = '✅ Account created! You can now log in.';
+                successMessage.classList.add('show');
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 4000);
+            }
+        });
+
+        // ============================================
+        // SHAKE ANIMATION
+        // ============================================
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                20% { transform: translateX(-12px); }
+                40% { transform: translateX(12px); }
+                60% { transform: translateX(-8px); }
+                80% { transform: translateX(8px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        console.log('✨ AMAZE Register Page Loaded');
+        console.log('📝 Users saved to localStorage');
+    </script>
+
+</body>
+</html>

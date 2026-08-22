@@ -27,11 +27,12 @@
             </div>
 
             <div class="nav-links">
-                <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
-                <a href="#" id="aboutLink"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#" id="homeLink"><i class="fas fa-home"></i> Home</a>
+                <!-- ABOUT LINK - FIXED -->
+                <a href="javascript:void(0)" id="aboutLink"><i class="fas fa-info-circle"></i> About</a>
                 <a href="#" id="profileLink"><i class="fas fa-user"></i> Profile</a>
-                <a href="#" id="loginLink"><i class="fas fa-sign-in-alt"></i> Log in</a>
-                <a href="#" id="registerNavLink" class="btn-register"><i class="fas fa-user-plus"></i> Register</a>
+                <a href="login.html" id="loginPageLink"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="register.html" id="registerPageLink" class="btn-register"><i class="fas fa-user-plus"></i> Register</a>
             </div>
 
             <div class="nav-actions">
@@ -98,7 +99,7 @@
     <!-- ====== REST OF THE CONTENT ====== -->
     <div class="main-content">
 
-        <!-- ====== ABOUT SECTION ====== -->
+        <!-- ====== ABOUT SECTION - SCROLLS DOWN HERE ====== -->
         <section class="about-section" id="aboutSection">
             <div class="container">
                 <div class="about-wrapper">
@@ -151,7 +152,7 @@
                         </div>
 
                         <div class="about-cta">
-                            <button class="btn-primary" id="scrollToProduct">
+                            <button class="btn-primary" id="scrollToProductBtn">
                                 <i class="fas fa-shopping-bag"></i> Shop Now
                             </button>
                             <button class="btn-secondary about-btn-secondary">
@@ -244,6 +245,7 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag"><i class="fas fa-heart"></i> What Our Customers Say</span>
+                    <h2>Real <span>Reviews</span></h2>
                     <p>Loved by thousands of women around the world</p>
                 </div>
 
@@ -366,7 +368,7 @@
                         </div>
 
                         <div class="product-extras">
-                            <span><i class="fas fa-truck"></i> Free Shipping</span>
+                            <span><i class="fas fa-truck"></i> Fast Shipping</span>
                             <span><i class="fas fa-undo-alt"></i> 30-Day Returns</span>
                         </div>
                     </div>
@@ -407,14 +409,14 @@
             <p class="sub">Sign in to continue your glow.</p>
             <form id="loginForm">
                 <div class="form-group">
-                    <label><i class="fas fa-envelope"></i> Email</label>
-                    <input type="email" placeholder="you@example.com" required />
+                    <label><i class="fas fa-envelope"></i> Username / Email</label>
+                    <input type="text" id="loginUsername" placeholder="Enter username or email" required />
                 </div>
                 <div class="form-group">
                     <label><i class="fas fa-lock"></i> Password</label>
-                    <input type="password" placeholder="••••••••" required />
+                    <input type="password" id="loginPassword" placeholder="••••••••" required />
                 </div>
-                <button type="submit" class="btn-modal">Log In</button>
+                <button type="submit" class="btn-modal" id="loginSubmitBtn">Log In</button>
             </form>
             <div class="modal-footer">New here? <button id="switchToRegister">Create Account</button></div>
         </div>
@@ -467,6 +469,6 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script src="cosmetics.js"></script>
 </body>
 </html>

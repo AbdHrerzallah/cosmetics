@@ -13,6 +13,12 @@ const PRODUCT = {
 };
 
 // ============================================
+// ADMIN CREDENTIALS
+// ============================================
+const ADMIN_USERNAME = 'admin';
+const ADMIN_PASSWORD = '123';
+
+// ============================================
 // DOM REFERENCES
 // ============================================
 const cartBadge = document.getElementById('cartBadge');
@@ -121,8 +127,8 @@ function updateProfile() {
     if (currentUser) {
         profileName.textContent = currentUser.name;
         profileEmail.textContent = currentUser.email;
-        profileStatus.textContent = 'Logged In';
-        profileStatus.style.color = '#2d7d46';
+        profileStatus.textContent = currentUser.isAdmin ? '👑 Admin' : 'Logged In';
+        profileStatus.style.color = currentUser.isAdmin ? '#b45f4b' : '#2d7d46';
     } else {
         profileName.textContent = 'Guest';
         profileEmail.textContent = 'guest@example.com';
@@ -132,16 +138,76 @@ function updateProfile() {
 }
 
 // ============================================
-// EVENT LISTENERS
+// ===== ABOUT BUTTON - SCROLLS DOWN TO ABOUT SECTION =====
+// ============================================
+document.getElementById('aboutLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    const aboutSection = document.getElementById('aboutSection');
+    if (aboutSection) {
+        setTimeout(function() {
+            aboutSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }, 100);
+    }
+});
+
+// ============================================
+// HOME LINK - Scroll to top
+// ============================================
+document.getElementById('homeLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ============================================
+// LOGIN PAGE LINK
+// ============================================
+document.getElementById('loginPageLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = 'login.html';
+});
+
+// ============================================
+// REGISTER PAGE LINK
+// ============================================
+document.getElementById('registerPageLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = 'register.html';
+});
+
+// ============================================
+// PROFILE LINK
+// ============================================
+document.getElementById('profileLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    if (currentUser) {
+        openModal(profileModal);
+    } else {
+        alert('Please log in first.');
+        window.location.href = 'login.html';
+    }
+});
+
+// ============================================
+// QUANTITY SELECTOR
 // ============================================
 qtyDecrease.addEventListener('click', () => {
-    if (productQty > 1) { productQty--; qtyDisplay.textContent = productQty; }
+    if (productQty > 1) {
+        productQty--;
+        qtyDisplay.textContent = productQty;
+    }
 });
+
 qtyIncrease.addEventListener('click', () => {
     productQty++;
     qtyDisplay.textContent = productQty;
 });
 
+// ============================================
+// ADD TO CART
+// ============================================
 addToCartBtn.addEventListener('click', () => {
     const qty = parseInt(qtyDisplay.textContent, 10) || 1;
     addToCart(qty);
@@ -149,77 +215,90 @@ addToCartBtn.addEventListener('click', () => {
     qtyDisplay.textContent = '1';
 });
 
+// ============================================
+// SCROLL TO PRODUCT
+// ============================================
 document.getElementById('scrollToProduct').addEventListener('click', () => {
     document.getElementById('productSection').scrollIntoView({ behavior: 'smooth' });
 });
 
+document.getElementById('scrollToProductBtn').addEventListener('click', () => {
+    document.getElementById('productSection').scrollIntoView({ behavior: 'smooth' });
+});
+
+// ============================================
+// CART TOGGLE
+// ============================================
 document.getElementById('cartToggleBtn').addEventListener('click', () => {
     document.getElementById('cartPreview').scrollIntoView({ behavior: 'smooth' });
 });
 
-document.getElementById('homeLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-document.getElementById('aboutLink').addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('aboutSection').scrollIntoView({ behavior: 'smooth' });
-});
-
-document.getElementById('loginLink').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (currentUser) openModal(profileModal);
-    else openModal(loginModal);
-});
-
-document.getElementById('registerNavLink').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (currentUser) {
-        alert('You are already logged in as ' + currentUser.name);
-        openModal(profileModal);
-    } else {
-        openModal(registerModal);
-    }
-});
-
-document.getElementById('profileLink').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (currentUser) openModal(profileModal);
-    else {
-        alert('Please log in first.');
-        openModal(loginModal);
-    }
-});
-
+// ============================================
+// CLOSE MODAL BUTTONS
+// ============================================
 document.getElementById('closeLoginModal').addEventListener('click', closeAllModals);
 document.getElementById('closeRegisterModal').addEventListener('click', closeAllModals);
 document.getElementById('closeProfileModal').addEventListener('click', closeAllModals);
+
 document.querySelectorAll('.modal-overlay').forEach(overlay => {
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeAllModals();
+    overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeAllModals();
+        }
     });
 });
 
-document.getElementById('switchToRegister').addEventListener('click', () => openModal(registerModal));
-document.getElementById('switchToLogin').addEventListener('click', () => openModal(loginModal));
-
-document.getElementById('loginForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = e.target.querySelector('input[type="email"]').value.trim();
-    const name = email.split('@')[0] || 'User';
-    currentUser = { name, email };
-    updateProfile();
-    closeAllModals();
-    alert('✅ Logged in as ' + name);
+// ============================================
+// SWITCH MODALS
+// ============================================
+document.getElementById('switchToRegister').addEventListener('click', () => {
+    openModal(registerModal);
 });
 
-document.getElementById('registerForm').addEventListener('submit', (e) => {
+document.getElementById('switchToLogin').addEventListener('click', () => {
+    openModal(loginModal);
+});
+
+// ============================================
+// LOGIN FORM - ADMIN CHECK
+// ============================================
+document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const name = e.target.querySelector('input[type="text"]').value.trim() || 'User';
-    const email = e.target.querySelector('input[type="email"]').value.trim();
-    const password = e.target.querySelectorAll('input[type="password"]')[0].value;
-    const confirmPassword = e.target.querySelectorAll('input[type="password"]')[1].value;
+    
+    const username = document.getElementById('loginUsername').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
+
+    // CHECK FOR ADMIN LOGIN
+    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+        alert('👑 Welcome Admin! Redirecting to dashboard...');
+        window.location.href = 'admin.html';
+        return;
+    }
+
+    // Regular user login
+    const email = username;
+    const name = email.split('@')[0] || 'User';
+    
+    if (email.includes('@')) {
+        currentUser = { name, email, isAdmin: false };
+        updateProfile();
+        closeAllModals();
+        alert('✅ Logged in as ' + name);
+    } else {
+        alert('❌ Invalid credentials. For admin use: admin / 123');
+    }
+});
+
+// ============================================
+// REGISTER FORM
+// ============================================
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = this.querySelector('input[type="text"]').value.trim() || 'User';
+    const email = this.querySelector('input[type="email"]').value.trim();
+    const password = this.querySelectorAll('input[type="password"]')[0].value;
+    const confirmPassword = this.querySelectorAll('input[type="password"]')[1].value;
 
     if (password.length < 6) {
         alert('❌ Password must be at least 6 characters.');
@@ -229,20 +308,27 @@ document.getElementById('registerForm').addEventListener('submit', (e) => {
         alert('❌ Passwords do not match.');
         return;
     }
-    currentUser = { name, email };
+    
+    currentUser = { name, email, isAdmin: false };
     updateProfile();
     closeAllModals();
     alert('🎉 Account created! Welcome ' + name);
 });
 
-document.getElementById('logoutBtn').addEventListener('click', () => {
+// ============================================
+// LOGOUT
+// ============================================
+document.getElementById('logoutBtn').addEventListener('click', function() {
     currentUser = null;
     updateProfile();
     closeAllModals();
     alert('👋 Logged out.');
 });
 
-document.getElementById('checkoutDummy').addEventListener('click', () => {
+// ============================================
+// CHECKOUT (Demo)
+// ============================================
+document.getElementById('checkoutDummy').addEventListener('click', function() {
     if (cart.length === 0) {
         alert('🛒 Cart is empty');
         return;
@@ -257,4 +343,7 @@ document.getElementById('checkoutDummy').addEventListener('click', () => {
 // ============================================
 updateCartUI();
 updateProfile();
+
 console.log('✨ AMAZE — Premium Cosmetics');
+console.log('👑 Admin Login: admin / 123');
+console.log('📍 Click "About" in navbar to scroll to About section');
